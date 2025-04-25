@@ -1,8 +1,8 @@
-#include "include/arrays_generator.h"
+#include "include/performance_tests.h"
 
 
 int main() {
-    generateArrays();
+    chooseAlgorythm();
 
     return 0;
 }
