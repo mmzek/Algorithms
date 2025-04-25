@@ -1,3 +1,5 @@
+#include "quick-sort.h"
+
 template<typename T>
 int partition(T *tab,int start, int end) {
     T pivot = tab[start];
@@ -11,7 +13,7 @@ int partition(T *tab,int start, int end) {
             i++;
         }while (tab[i]<pivot);
         if (i<j) {
-            int swap = tab[i];
+            T swap = tab[i];
             tab[i]=tab[j];
             tab[j] = swap;
         }else {
