@@ -1,6 +1,9 @@
 //
-// Created by majam on 24.04.2025.
+// Created by majam on 25.04.2025.
 //
+
+#ifndef MERGE_SORT_H
+#define MERGE_SORT_H
 #include <cmath>
 
 template<typename T>
@@ -52,3 +55,4 @@ void mergesort(T* tab, int start, int end) {
         merge(tab,start,end,q);
     }
 }
+#endif //MERGE_SORT_H

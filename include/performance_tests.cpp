@@ -52,7 +52,7 @@ void performance_tests(int algorithmChoice, int size, float presort) {
             }
             case 3: {
                 auto start = std::chrono::high_resolution_clock::now();
-                //introsort<int>(array, 0, size - 1);
+                introspective_sort<int>(array, 0, size - 1);
                 auto stop = std::chrono::high_resolution_clock::now();
                 auto duration = duration_cast<std::chrono::nanoseconds>(stop - start);
                 currentDuration += duration.count();
