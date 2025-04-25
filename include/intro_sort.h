@@ -1,10 +1,11 @@
 //
-// Created by majam on 24.04.2025.
+// Created by majam on 25.04.2025.
 //
 
+#ifndef INTRO_SORT_H
+#define INTRO_SORT_H
 #include <bits/stdc++.h>
-#include "quick-sort.h"
-
+#include "quick_sort.h"
 
 template<typename T>
 void heapify(T* tab, int index, int size) {
@@ -43,9 +44,9 @@ void heapsort(T* tab, int size) {
 }
 
 template<typename T>
-void insertionSort(T* tab, int size) {
-    for (int i=0; i<size-1;i++) {
-        int key = tab[i];
+void insertion_sort(T* tab, int size) {
+    for (int i=0; i<size;i++) {
+        T key = tab[i];
         int insert = i - 1;
         while (insert>=0 && tab[insert] > key) {
             tab [insert+1] = tab [insert];
@@ -57,40 +58,41 @@ void insertionSort(T* tab, int size) {
 
 template<typename T>
 int median(T* tab, int a, int b, int c) {
-        if ((tab[a] < tab[b] && tab[b] < tab[c]) || (tab[c] <= tab[b] && tab[b] <= tab[a]))
+        if ((tab[a] <= tab[b] && tab[b] <= tab[c]) || (tab[c] <= tab[b] && tab[b] <= tab[a]))
             return b;
-
-        if ((tab[a] < tab[c] && tab[c] <= tab[b]) || (tab[b] < tab[c] && tab[c] <= tab[a]))
-            return c;
-
-        if ((tab[b] <= tab[a] && tab[a] < tab[c]) || (tab[c] <= tab[a] && tab[a] < tab[b]))
+        if ((tab[b] <= tab[a] && tab[a] <= tab[c]) || (tab[c] <= tab[a] && tab[a] < tab[b]))
             return a;
+        return c;
 }
 
 template<typename T>
-void introSortUtil(T* tab, int start, int end, int depthLimit) {
-    int size = end - start;
+void intro_sort(T* tab, int start, int end, const int limit) {
+    const int size = end-start+1;
 
-    if (size <20) {
-        insersionSort(tab, start, end);
-    }
-    if (depthLimit == 0) {
-        heapsort(tab, size);
+    if (limit <= 0) {
+        heapsort(tab+start, size);
+        return;
     }
 
     int pivot = median(tab, start, start+size/2, end);
+    int swap = tab[start];
+    tab[start]=tab[pivot];
+    tab[pivot]=swap;
 
-    const int swap = pivot;
-    pivot = end;
-    end = swap;
+    int part = partition(tab, start, end, tab[start]);
 
-    int partition = partition(tab, start, end);
-    introSortUtil(tab, start, partition -1, depthLimit -1);
-    introSortUtil(tab, partition + 1, end, depthLimit -1);
+    if (part>9)
+        intro_sort(tab, start, part - 1, limit - 1);
+    if (end - part >9)
+    intro_sort(tab, part + 1, end, limit - 1);
 }
 
 template<typename T>
-void introSort(T* tab, int start, int end) {
-    int depthLimit = 2 * std::log(end-start);
-    introSortUtil(tab,start, end, depthLimit);
+void introspective_sort(T* tab, int start, int end) {
+    int size = end-start+1;
+    int limit = static_cast<int>(floor(2 * std::log(size)));
+
+    intro_sort(tab, start, end, limit);
+    insertion_sort(tab + start, size);
 }
+#endif //INTRO_SORT_H

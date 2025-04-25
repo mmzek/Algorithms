@@ -1,8 +1,11 @@
-#include "quick-sort.h"
+//
+// Created by majam on 25.04.2025.
+//
 
+#ifndef QUICK_SORT_H
+#define QUICK_SORT_H
 template<typename T>
-int partition(T *tab,int start, int end) {
-    T pivot = tab[start];
+int partition(T *tab,int start, int end, T pivot) {
     int i = start-1;
     int j = end + 1;
     while (true) {
@@ -25,8 +28,9 @@ int partition(T *tab,int start, int end) {
 template<typename T>
 void quicksort(T *tab,int start, int end) {
     if (start<end) {
-        int q= partition(tab, start, end);
+        int q= partition(tab, start, end, tab[start]);
         quicksort(tab, start, q);
         quicksort(tab, q+1, end);
     }
 }
+#endif //QUICK_SORT_H
