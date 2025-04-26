@@ -1,7 +1,3 @@
-//
-// Created by majam on 25.04.2025.
-//
-
 #ifndef INTRO_SORT_H
 #define INTRO_SORT_H
 #include <bits/stdc++.h>

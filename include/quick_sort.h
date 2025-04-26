@@ -1,7 +1,3 @@
-//
-// Created by majam on 25.04.2025.
-//
-
 #ifndef QUICK_SORT_H
 #define QUICK_SORT_H
 template<typename T>
@@ -28,7 +24,14 @@ int partition(T *tab,int start, int end, T pivot) {
 template<typename T>
 void quicksort(T *tab,int start, int end) {
     if (start<end) {
-        int q= partition(tab, start, end, tab[start]);
+
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        std::uniform_int_distribution<int> dist(start, end);
+        int pivotIndex = dist(gen);
+        T pivotValue = tab[pivotIndex];
+
+        int q= partition(tab, start, end, pivotValue);
         quicksort(tab, start, q);
         quicksort(tab, q+1, end);
     }

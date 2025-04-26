@@ -4,7 +4,6 @@
 
 #ifndef MERGE_SORT_H
 #define MERGE_SORT_H
-#include <cmath>
 
 template<typename T>
 void merge(T* tab, int start, int end, int q) {

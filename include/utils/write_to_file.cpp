@@ -40,5 +40,5 @@ void toFile(int algorythmChoice, const unsigned long long duration, const int si
 
     file<< "\nArray size: "<< size;
     file<< "\nArray presort: "<< presort*100 << "%";
-    file << "\n" << algorythmName << " results measured in nanoseconds: " << duration << "\n";
+    file << "\n" << algorythmName << " results measured in microseconds: " << duration << "\n";
 }

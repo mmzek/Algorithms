@@ -38,7 +38,7 @@ void performance_tests(int algorithmChoice, int size, float presort) {
                 auto start = std::chrono::high_resolution_clock::now();
                 quicksort<int>(array, 0, size - 1);
                 auto stop = std::chrono::high_resolution_clock::now();
-                auto duration = duration_cast<std::chrono::nanoseconds>(stop - start);
+                auto duration = duration_cast<std::chrono::microseconds>(stop - start);
                 currentDuration += duration.count();
                 break;
             }
@@ -46,7 +46,7 @@ void performance_tests(int algorithmChoice, int size, float presort) {
                 auto start = std::chrono::high_resolution_clock::now();
                 mergesort<int>(array, 0, size - 1);
                 auto stop = std::chrono::high_resolution_clock::now();
-                auto duration = duration_cast<std::chrono::nanoseconds>(stop - start);
+                auto duration = duration_cast<std::chrono::microseconds>(stop - start);
                 currentDuration += duration.count();
                 break;
             }
@@ -54,7 +54,7 @@ void performance_tests(int algorithmChoice, int size, float presort) {
                 auto start = std::chrono::high_resolution_clock::now();
                 introspective_sort<int>(array, 0, size - 1);
                 auto stop = std::chrono::high_resolution_clock::now();
-                auto duration = duration_cast<std::chrono::nanoseconds>(stop - start);
+                auto duration = duration_cast<std::chrono::microseconds>(stop - start);
                 currentDuration += duration.count();
 
                 break;
