@@ -1,7 +1,3 @@
-//
-// Created by majam on 25.04.2025.
-//
-
 #ifndef WRITE_TO_FILE_H
 #define WRITE_TO_FILE_H
 #include <iostream>
