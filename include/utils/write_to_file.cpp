@@ -1,6 +1,3 @@
-//
-// Created by majam on 25.04.2025.
-//
 #include "write_to_file.h"
 
 #include <fstream>
@@ -17,12 +14,12 @@ void toFile(int algorythmChoice, const unsigned long long duration, const int si
         }
         case 2: {
             fileName = "merge_sort.txt";
-            algorythmName = "Quicksort";
+            algorythmName = "Mergesort";
             break;
         }
         case 3: {
             fileName = "intro_sort.txt";
-            algorythmName = "Quicksort";
+            algorythmName = "Introsort";
             break;
         }
         default: {

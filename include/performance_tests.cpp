@@ -14,7 +14,7 @@
 #include "quick_sort.h"
 
 const int sizes[] = {100, 500, 1000, 5000, 10000, 50000, 100000, 500000, 1000000};
-constexpr float presorts[] = {0, 0.25, 0.5, 0.75, 0.95, 0.99, 0.997, 1};
+constexpr float presorts[] = {0, 0.25, 0.5, 0.75, 0.95, 0.99, 0.997, 1.0};
 
 void pre_sort(int *array, const int size, const float presort) {
     std::sort(array, array + static_cast<int>(static_cast<float>(size) * presort));
@@ -76,8 +76,8 @@ void performance_tests(int algorithmChoice, int size, float presort) {
     }else if (algorithmChoice ==3) {
         algorithmName = "introsort";
     }
-    std::cout << "\nTime duration of " <<algorithmName<< " for " << size << " array size with " << presort <<
-            " presorted values was written to file." << "\n";
+    std::cout << "\nTime duration of " <<algorithmName<< " for " << size << " array size with " << presort*100 <<
+            "% presorted values was written to file." << "\n";
 }
 
 
